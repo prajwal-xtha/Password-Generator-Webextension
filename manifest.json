@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": " Rnadom Password Generator",
+    "version": "1.0",
+    "description": "A simple web extension for generating strong random password.",
+    "action": {
+        "default_popup": "popup/passGen.html",
+        "default_icon": "icons/icons-48.png"
+    }
+}
