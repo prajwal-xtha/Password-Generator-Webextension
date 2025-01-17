@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+</head>
+<body>
+    <div class="display">
+        <input type="text" name="passwordDisplay" id="passwordDisplay" class="passwordDisplay">
+        <button type="button" id="generateButton">
+            <img src="../assets/cached.svg" alt="image of generate button">
+        </button>
+        <button type="button" id="copyButton">
+            <img src="../assets/copy.svg" alt="image of copy button">
+        </button>
+    </div>
+    <div class="setting">
+        <p>Password Length : <span id="passLength">12</span></p>
+        <div class="range">
+            <input type="range" name="passRange" id="passRange" max="40" min="8" value="12">
+        </div>
+        <input type="checkbox" name="upperCase" id="upperCase" checked>
+        <label for="upperCase">Upper Case</label>
+        <input type="checkbox" name="lowerCase" id="lowerCase" checked>
+        <label for="lowerCase">Lower Case</label>
+        <input type="checkbox" name="numbers" id="numbers" checked>
+        <label for="numbers">Numbers</label>
+        <input type="checkbox" name="symbol" id="symbol">
+        <label for="symbol">Symbol</label>
+
+
+
+        
+
+    </div>
+</body>
+</html>
