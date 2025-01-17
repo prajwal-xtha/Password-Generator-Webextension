@@ -5,6 +5,7 @@ const lowerCase = document.getElementById("lowerCase");
 const numbers = document.getElementById("numbers");
 const symbol = document.getElementById("symbol");
 const passDisplay = document.getElementById("passwordDisplay");
+const passLength = document.getElementById("passLength");
 const copy = document.getElementById("copyButton");
 const generate = document.getElementById("generateButton");
 
@@ -57,6 +58,7 @@ function passGen() {
   passDisplay.value = "";
   passDisplay.value = password;
   console.log(password);
+  console.log(password.length);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -66,5 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 copy.addEventListener("click", function () {
   passDisplay.select();
-  navigator.clipboard.write(passDisplay.value);
+  navigator.clipboard.writeText(passDisplay.value);
+});
+
+passRange.addEventListener("input", function () {
+  passLength.textContent = passRange.value;
 });
