@@ -35,6 +35,15 @@ function check() {
   if (symbol.checked) {
     char += symbolChar;
   }
+  if (
+    symbol.checked == 0 &&
+    numbers.checked == 0 &&
+    lowerCase.checked == 0 &&
+    upperCase.checked == 0
+  ) {
+    alert("Check at least One !!!!");
+    return;
+  }
   passGen();
 }
 check();
