@@ -18,6 +18,9 @@ let password;
 let range;
 let randNum;
 
+const modalElement = document.getElementById("default-modal");
+const warningModal = new Modal(modalElement);
+
 function randNumGen(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -43,9 +46,8 @@ function check() {
     lowerCase.checked == 0 &&
     upperCase.checked == 0
   ) {
-    const warningModal = new bootstrap.Modal(document.getElementById('warningModal'));
-    passRange.disabled = true;
     warningModal.show();
+    passRange.disabled = true;
     return;
   }
   passGen();
