@@ -24,6 +24,7 @@ function randNumGen(min, max) {
 
 function check() {
   char = "";
+  passRange.disabled = false;
   if (upperCase.checked) {
     char += upperChar;
   }
@@ -42,7 +43,9 @@ function check() {
     lowerCase.checked == 0 &&
     upperCase.checked == 0
   ) {
-    alert("Check at least One !!!!");
+    const warningModal = new bootstrap.Modal(document.getElementById('warningModal'));
+    passRange.disabled = true;
+    warningModal.show();
     return;
   }
   passGen();
