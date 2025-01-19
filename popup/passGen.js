@@ -49,8 +49,6 @@ function passGen() {
   }
   passDisplay.value = "";
   passDisplay.value = password;
-  console.log(password);
-  console.log(password.length);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
