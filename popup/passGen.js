@@ -1,4 +1,3 @@
-// Variable Decleration
 const passRange = document.getElementById("passRange");
 const upperCase = document.getElementById("upperCase");
 const lowerCase = document.getElementById("lowerCase");
@@ -13,41 +12,34 @@ const upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lowerChar = "abcdefghijklmnopqrstuvwxyz";
 const numberChar = "1234567890";
 const symbolChar = "!@#$%^&*()-_=+{}[]|:;',<.>/?";
-let char;
-let password;
-let range;
-let randNum;
+let char , password,range,randNum;
 
-function randNumGen(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+//for alert
+const modalElement = document.querySelector("#default-modal");
+const warningModal = new Modal(modalElement);
+
+//when copied
+const copied = document.querySelector("#copied-modal");
+const copiedmodal = new Modal(copied);
+
+//
+var randNumGen =  (min, max) =>  Math.floor(Math.random() * (max - min + 1)) + min;
 
 function check() {
   char = "";
-  if (upperCase.checked) {
-    char += upperChar;
-  }
-  if (lowerCase.checked) {
-    char = char + lowerChar;
-  }
-  if (numbers.checked) {
-    char += numberChar;
-  }
-  if (symbol.checked) {
-    char += symbolChar;
-  }
-  if (
-    symbol.checked == 0 &&
-    numbers.checked == 0 &&
-    lowerCase.checked == 0 &&
-    upperCase.checked == 0
-  ) {
-    alert("Check at least One !!!!");
+  passRange.disabled = false;
+  if (upperCase.checked) char += upperChar;
+  if (lowerCase.checked) char = char + lowerChar;
+  if (numbers.checked) char += numberChar;
+  if (symbol.checked) char += symbolChar;
+  
+  if (!symbol.checked  &&!numbers.checked  &&!lowerCase.checked  && !upperCase.checked ) {
+    warningModal.show();
+    passRange.disabled = true;
     return;
   }
   passGen();
 }
-check();
 function passGen() {
   password = "";
   range = Number(passRange.value);
@@ -62,13 +54,17 @@ function passGen() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  check()
   generate.addEventListener("click", check);
   passRange.addEventListener("click", check);
 });
 
 copy.addEventListener("click", function () {
+  copiedmodal.show()
   passDisplay.select();
   navigator.clipboard.writeText(passDisplay.value);
+  document.querySelector('#pass').textContent = ` Copied to Clipboard: ${passDisplay.value}`
+  setTimeout(() => copiedmodal.hide(), 400);
 });
 
 passRange.addEventListener("input", function () {
